@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 /* light(default) 테마 색상 */
-:root {
+@theme {
   /* ===== Primary - Royal blue ===== */
   --color-primary: #305cde;
 
@@ -22,8 +22,8 @@
   --color-border: #e2e8f0;
   --color-border-strong: #cbd5e1;
 
-  --color-shadow: rgba(15, 23, 42, 0.08);
-  --color-shadow-strong: rgba(15, 23, 42, 0.16);
+  --shadow-card: 0 4px 10px rgba(15, 23, 42, 0.08);
+  --shadow-card-strong: 0 4px 10px rgba(15, 23, 42, 0.16);
 
   --color-bg: #f8fafc;
   --color-bg-card: #ffffff;

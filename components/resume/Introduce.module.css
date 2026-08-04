@@ -1,0 +1,46 @@
+/* 자기소개 섹션 module.css  */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* 도트 그리드 */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(
+    var(--color-border-strong) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 90%);
+  mask-image: linear-gradient(180deg, #000 70%, transparent 90%);
+}
+
+/* 스포트라이트 */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    200px circle at var(--mx, 50%) var(--my, 40%),
+    color-mix(in srgb, var(--color-primary-light) 24%, transparent),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(180deg, #000 75%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 75%, transparent 100%);
+}
+
+/* 모션 최소화 설정 = 스포트라이트 중앙 고정.
+   JS 가 쓰는 인라인 스타일을 이겨야 하므로 !important 가 필요하다.
+   (JS 는 마운트 시점에 한 번만 검사하지만, 미디어 쿼리는 실시간으로 반응한다) */
+@media (prefers-reduced-motion: reduce) {
+  .spotlight {
+    --mx: 50% !important;
+    --my: 40% !important;
+  }
+}

@@ -1,71 +1,59 @@
 @import 'tailwindcss';
 
-/* light(default) 테마 색상 */
+/* light/dark theme */
 @theme {
   /* ===== Primary - Royal blue ===== */
-  --color-primary: #305cde;
+  --color-primary: light-dark(#305cde, #5f81e5);
 
-  --color-primary-focus: #1e45ba;
-  --color-primary-light: #5f81e5;
+  --color-primary-focus: light-dark(#1e45ba, #7f9aec);
+  --color-primary-light: light-dark(#5f81e5, #a3bcf2);
 
   /* ===== Secondary - Neutral ===== */
-  --color-secondary: #64748b;
+  --color-secondary: light-dark(#64748b, #94a3b8);
 
-  --color-secondary-light: #94a3b8;
+  --color-secondary-light: light-dark(#94a3b8, #cbd5e1);
 
-  /* ===== Text  ===== */
-  --color-main: #1e293b;
-  --color-sub: #475569;
-  --color-muted: #94a3b8;
+  /* ===== Text ===== */
+  --color-main: light-dark(#1e293b, #f1f5f9);
+  --color-sub: light-dark(#475569, #cbd5e1);
+  --color-muted: light-dark(#94a3b8, #64748b);
 
-  /* ===== Border, Shadow, Background  ===== */
-  --color-border: #e2e8f0;
-  --color-border-strong: #cbd5e1;
+  /* ===== Border ===== */
+  --color-border: light-dark(#e2e8f0, #334155);
+  --color-border-strong: light-dark(#cbd5e1, #475569);
 
-  --shadow-card: 0 4px 10px rgba(15, 23, 42, 0.08);
-  --shadow-card-strong: 0 4px 10px rgba(15, 23, 42, 0.16);
+  /* ===== Background ===== */
+  --color-bg: light-dark(#f8fafc, #0f172a);
+  --color-bg-card: light-dark(#ffffff, #1e293b);
 
-  --color-bg: #f8fafc;
-  --color-bg-card: #ffffff;
+  /* ===== Shadow ===== */
+  --color-shadow: light-dark(rgb(15 23 42 / 0.08), rgb(0 0 0 / 0.3));
+  --color-shadow-strong: light-dark(rgb(15 23 42 / 0.16), rgb(0 0 0 / 0.5));
+
+  --shadow-card: 0 4px 10px var(--color-shadow);
+  --shadow-card-strong: 0 4px 10px var(--color-shadow-strong);
+
+  /* ===== Effect ===== */
+  --color-spotlight: light-dark(
+    rgb(95 129 229 / 0.24),
+    rgb(163 188 242 / 0.24)
+  );
 
   /* ===== Status ===== */
-  --color-success: #16a34a;
-  --color-info: #0ea5e9;
-  --color-warning: #d97706;
-  --color-error: #dc2626;
+  --color-success: light-dark(#16a34a, #22c55e);
+  --color-info: light-dark(#0ea5e9, #38bdf8);
+  --color-warning: light-dark(#d97706, #f59e0b);
+  --color-error: light-dark(#dc2626, #ef4444);
 }
 
-/* dark 테마 색상 */
+:root {
+  color-scheme: light dark;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+}
+
 [data-theme='dark'] {
-  /* ===== Primary ===== */
-  --color-primary: #5f81e5;
-
-  --color-primary-focus: #7f9aec;
-  --color-primary-light: #a3bcf2;
-
-  /* ===== Secondary ===== */
-  --color-secondary: #94a3b8;
-
-  --color-secondary-light: #cbd5e1;
-
-  /* ===== Text  ===== */
-  --color-main: #f1f5f9;
-  --color-sub: #cbd5e1;
-  --color-muted: #64748b;
-
-  /* ===== Border, Shadow, Background  ===== */
-  --color-border: #334155;
-  --color-border-strong: #475569;
-
-  --color-shadow: rgba(0, 0, 0, 0.3);
-  --color-shadow-strong: rgba(0, 0, 0, 0.5);
-
-  --color-bg: #0f172a;
-  --color-bg-card: #1e293b;
-
-  /* ===== Status ===== */
-  --color-success: #22c55e;
-  --color-info: #38bdf8;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  color-scheme: dark;
 }

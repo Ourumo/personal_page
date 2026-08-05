@@ -28,7 +28,7 @@
   z-index: -1;
   background: radial-gradient(
     200px circle at var(--mx, 50%) var(--my, 40%),
-    color-mix(in srgb, var(--color-primary-light) 24%, transparent),
+    var(--color-spotlight),
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(180deg, #000 75%, transparent 100%);

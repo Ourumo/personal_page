@@ -12,7 +12,19 @@ export interface IntroduceContent {
   links: IntroduceLink[];
 }
 
+// ===== 기술 스택 섹션 =====
+export interface Skill {
+  name: string;
+  src: string;
+}
+
+export interface SkillGroup {
+  label: string;
+  items: Skill[];
+}
+
 // ===== 전체 =====
 export interface ResumeContent {
   introduce: IntroduceContent;
+  skills: SkillGroup[];
 }

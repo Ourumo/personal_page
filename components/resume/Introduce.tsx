@@ -17,18 +17,18 @@ const INTRODUCE_CONTENT: IntroduceContent = {
 export default function Introduce() {
   return (
     <section
-      className={`${styles.hero} flex min-h-[88svh] flex-col items-center justify-center px-6`}
+      className={`${styles.hero} flex min-h-[90svh] flex-col items-center justify-center px-6`}
     >
       <IntroduceSpotlight />
 
       <div className='relative flex flex-col items-center gap-4 text-center'>
-        <p className='text-sm font-medium tracking-[0.2em] text-primary uppercase'>
+        <p className='text-sm font-medium tracking-widest text-primary uppercase'>
           {INTRODUCE_CONTENT.role}
         </p>
         <h1 className='text-5xl font-bold text-main sm:text-6xl'>
           {INTRODUCE_CONTENT.name}
         </h1>
-        <p className='max-w-md text-base text-sub sm:text-lg'>
+        <p className='max-w-md text-base font-medium text-sub sm:text-lg'>
           {INTRODUCE_CONTENT.slogan}
         </p>
 

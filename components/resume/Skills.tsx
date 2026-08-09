@@ -6,41 +6,41 @@ const SKILLS: SkillGroup[] = [
   {
     label: '언어',
     items: [
-      { name: 'HTML', src: '/icons/HTML.svg' },
-      { name: 'CSS', src: '/icons/CSS.svg' },
-      { name: 'JavaScript', src: '/icons/JavaScript.svg' },
-      { name: 'TypeScript', src: '/icons/TypeScript.svg' },
-      { name: 'Python', src: '/icons/Python.svg' },
-      { name: 'Java', src: '/icons/Java.svg' },
+      { name: 'HTML', svg: '/icons/HTML.svg' },
+      { name: 'CSS', svg: '/icons/CSS.svg' },
+      { name: 'JavaScript', svg: '/icons/JavaScript.svg' },
+      { name: 'TypeScript', svg: '/icons/TypeScript.svg' },
+      { name: 'Python', svg: '/icons/Python.svg' },
+      { name: 'Java', svg: '/icons/Java.svg' },
     ],
   },
   {
     label: '프론트엔드',
     items: [
-      { name: 'React', src: '/icons/React.svg' },
-      { name: 'Next.js', src: '/icons/NextJS.svg' },
-      { name: 'Tailwind CSS', src: '/icons/TailwindCSS.svg' },
-      { name: 'Zustand', src: '/icons/Zustand.svg' },
-      { name: 'Redux', src: '/icons/Redux.svg' },
+      { name: 'React', svg: '/icons/React.svg' },
+      { name: 'Next.js', svg: '/icons/NextJS.svg' },
+      { name: 'Tailwind CSS', svg: '/icons/TailwindCSS.svg' },
+      { name: 'Zustand', svg: '/icons/Zustand.svg' },
+      { name: 'Redux', svg: '/icons/Redux.svg' },
     ],
   },
   {
     label: '백엔드 & 인프라',
     items: [
-      { name: 'FastAPI', src: '/icons/FastAPI.svg' },
-      { name: 'Spring Boot', src: '/icons/SpringBoot.svg' },
-      { name: 'Supabase', src: '/icons/Supabase.svg' },
-      { name: 'Ably', src: '/icons/Ably.svg' },
-      { name: 'AWS (EC2, S3)', src: '/icons/AWS.svg' },
+      { name: 'FastAPI', svg: '/icons/FastAPI.svg' },
+      { name: 'Spring Boot', svg: '/icons/SpringBoot.svg' },
+      { name: 'Supabase', svg: '/icons/Supabase.svg' },
+      { name: 'Ably', svg: '/icons/Ably.svg' },
+      { name: 'AWS (EC2, S3)', svg: '/icons/AWS.svg' },
     ],
   },
   {
     label: '도구',
     items: [
-      { name: 'Vite', src: '/icons/Vite.svg' },
-      { name: 'Figma', src: '/icons/Figma.svg' },
-      { name: 'Git', src: '/icons/Git.svg' },
-      { name: 'GitHub', src: '/icons/GitHub.svg' },
+      { name: 'Vite', svg: '/icons/Vite.svg' },
+      { name: 'Figma', svg: '/icons/Figma.svg' },
+      { name: 'Git', svg: '/icons/Git.svg' },
+      { name: 'GitHub', svg: '/icons/GitHub.svg' },
     ],
   },
 ];
@@ -65,7 +65,7 @@ export default function Skills() {
                     className='inline-flex items-center gap-2 rounded-full border border-border bg-bg px-3 py-1.5 text-sm text-sub'
                   >
                     <Image
-                      src={item.src}
+                      src={item.svg}
                       alt={item.name}
                       width={24}
                       height={24}

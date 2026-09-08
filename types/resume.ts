@@ -10,7 +10,8 @@ export interface CommonLink {
 export interface IntroduceData {
   role: string;
   name: string;
-  slogan: string[];
+  slogan: string;
+  bio: string;
   links: CommonLink[];
 }
 

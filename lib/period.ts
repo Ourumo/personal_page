@@ -16,3 +16,11 @@ export const formatPeriod = ({ start, end }: Period) => {
 
   return `${from.year}.${from.month}.${from.day} ~ ${to.year}.${to.month}.${to.day}`;
 };
+
+/** { start: 160301, end: 230228 } → '2016.03 – 2023.02' (교육처럼 월까지만 보이면 될 때) */
+export const formatPeriodMonths = ({ start, end }: Period) => {
+  const from = split(start);
+  const to = split(end);
+
+  return `20${from.year}.${from.month} – 20${to.year}.${to.month}`;
+};

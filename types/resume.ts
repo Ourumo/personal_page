@@ -6,6 +6,12 @@ export interface CommonLink {
   svg?: string;
 }
 
+export interface Period {
+  // YYMMDD
+  start: number;
+  end: number;
+}
+
 // ===== 자기소개 섹션 =====
 export interface IntroduceData {
   role: string;
@@ -27,12 +33,6 @@ export interface Skill {
 }
 
 // ===== 프로젝트 섹션 =====
-export interface Period {
-  // YYMMDD
-  start: number;
-  end: number;
-}
-
 export interface Project {
   title: string;
   periods: Period[];
@@ -43,9 +43,21 @@ export interface Project {
   links: CommonLink[];
 }
 
+// ===== 교육 섹션 =====
+export interface Education {
+  /** 학교 · 부트캠프 · 교육 과정명 */
+  name: string;
+  periods: Period[];
+  /** 전공, 수료 과정 등 한 줄 */
+  subtitle?: string;
+  /** 배운 내용. 한 줄이 하나의 항목 */
+  descriptions: string[];
+}
+
 // ===== 전체 =====
 export interface Resume {
   introduce: IntroduceData;
   skills: Skill[];
   projects: Project[];
+  educations: Education[];
 }

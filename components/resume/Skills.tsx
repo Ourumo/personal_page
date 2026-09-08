@@ -1,8 +1,8 @@
-import type { SkillGroup } from '@/types/resume';
+import type { Skill } from '@/types/resume';
 import Section from './Section';
 import Image from 'next/image';
 
-const SKILLS: SkillGroup[] = [
+const SKILLS_DATA: Skill[] = [
   {
     label: '언어',
     items: [
@@ -49,7 +49,7 @@ export default function Skills() {
   return (
     <Section title='기술 스택'>
       <dl className='divide-y divide-border'>
-        {SKILLS.map((skill) => (
+        {SKILLS_DATA.map((skill) => (
           <div
             key={skill.label}
             className='grid gap-2 py-4 first:pt-0 last:pb-0 sm:grid-cols-[8rem_1fr] sm:gap-4'

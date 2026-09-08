@@ -1,30 +1,50 @@
-// ===== 자기소개 섹션 =====
-export interface IntroduceLink {
+// ===== 공통 =====
+export interface CommonLink {
   label: string;
   href: string;
   external: boolean;
+  svg?: string;
 }
 
-export interface IntroduceContent {
+// ===== 자기소개 섹션 =====
+export interface IntroduceData {
   role: string;
   name: string;
-  slogan: string;
-  links: IntroduceLink[];
+  slogan: string[];
+  links: CommonLink[];
 }
 
 // ===== 기술 스택 섹션 =====
-export interface Skill {
+export interface SkillItem {
   name: string;
-  src: string;
+  svg: string;
 }
 
-export interface SkillGroup {
+export interface Skill {
   label: string;
-  items: Skill[];
+  items: SkillItem[];
+}
+
+// ===== 프로젝트 섹션 =====
+export interface Period {
+  // YYMMDD
+  start: number;
+  end: number;
+}
+
+export interface Project {
+  title: string;
+  periods: Period[];
+  meta: string[];
+  summary: string;
+  outcome: string;
+  tags: string[];
+  links: CommonLink[];
 }
 
 // ===== 전체 =====
-export interface ResumeContent {
-  introduce: IntroduceContent;
-  skills: SkillGroup[];
+export interface Resume {
+  introduce: IntroduceData;
+  skills: Skill[];
+  projects: Project[];
 }

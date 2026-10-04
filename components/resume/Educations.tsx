@@ -9,8 +9,9 @@ const EDUCATIONS_DATA: Education[] = [
     periods: [{ start: 260406, end: 261028 }],
     subtitle: "프론트엔드 트랙",
     descriptions: [
-      "React, TypeScript 기반 웹 프론트엔드 개발 학습",
-      "팀 프로젝트를 통한 협업 및 코드 리뷰 경험",
+      "React와 TypeScript로 컴포넌트 설계, 상태 관리, 라우팅까지 프론트엔드 전반을 학습",
+      "팀 프로젝트 '놀몽'에서 실시간 동기화 계층 구현을 맡아 배포까지 진행",
+      "팀 프로젝트 '무너랑'에서 프로젝트 구조 설계와 카카오 OAuth 인증 흐름 구현을 담당",
     ],
   },
   {
@@ -18,8 +19,8 @@ const EDUCATIONS_DATA: Education[] = [
     periods: [{ start: 250623, end: 250808 }],
     subtitle: "부스트캠프 웹・모바일 10기 - 베이직, 챌린지 과정",
     descriptions: [
-      "자료구조와 알고리즘, 웹 표준 등 기초 CS 지식 학습",
-      "주 단위 미션과 피어 리뷰를 통한 코드 품질 개선 훈련",
+      "소켓 서버·클라이언트와 Pub/Sub 이벤트 처리를 구현하고, 멀티스레드 환경의 레이스 컨디션을 학습",
+      "XML 파서, 가상 파일 시스템, 벡터DB를 JavaScript로 구현",
     ],
   },
   {
@@ -27,8 +28,7 @@ const EDUCATIONS_DATA: Education[] = [
     periods: [{ start: 240301, end: 241231 }],
     subtitle: "데이터 기반 웹/앱 개발자 양성 과정",
     descriptions: [
-      "Java, Spring Boot 기반 백엔드 개발과 REST API 설계 학습",
-      "실무형 프로젝트를 통한 요구사항 분석과 기능 구현 경험",
+      "기업 연계 실습으로 한 달간 사내 전자결재 웹 서비스의 프론트엔드를 담당",
     ],
   },
   {
@@ -36,8 +36,7 @@ const EDUCATIONS_DATA: Education[] = [
     periods: [{ start: 190301, end: 250228 }],
     subtitle: "소프트웨어학과 전공",
     descriptions: [
-      "프로그래밍 기초, 자료구조, 데이터베이스 등 전공 과목 이수",
-      "캡스톤 디자인 프로젝트에서 웹 서비스 기획과 개발 담당",
+      "졸업 프로젝트로 운동 추천 앱을 만들며 API 서버와 DB를 맡아 설계부터 구현까지 담당",
     ],
   },
 ];

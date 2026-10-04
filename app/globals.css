@@ -5,14 +5,6 @@
   /* ===== Primary - Royal blue ===== */
   --color-primary: light-dark(#305cde, #5f81e5);
 
-  --color-primary-focus: light-dark(#1e45ba, #7f9aec);
-  --color-primary-light: light-dark(#5f81e5, #a3bcf2);
-
-  /* ===== Secondary - Neutral ===== */
-  --color-secondary: light-dark(#64748b, #94a3b8);
-
-  --color-secondary-light: light-dark(#94a3b8, #cbd5e1);
-
   /* ===== Text ===== */
   --color-main: light-dark(#1e293b, #f1f5f9);
   --color-sub: light-dark(#475569, #cbd5e1);
@@ -32,12 +24,6 @@
 
   --shadow-card: 0 4px 10px var(--color-shadow);
   --shadow-card-strong: 0 4px 10px var(--color-shadow-strong);
-
-  /* ===== Effect ===== */
-  --color-spotlight: light-dark(
-    rgb(95 129 229 / 0.24),
-    rgb(163 188 242 / 0.24)
-  );
 
   /* ===== Status ===== */
   --color-success: light-dark(#16a34a, #22c55e);

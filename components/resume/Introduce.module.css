@@ -1,46 +1,89 @@
-/* 자기소개 섹션 module.css  */
+/* 자기소개 섹션 module.css */
 
-.hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
+/* ===== 들어올 때 한 번만 조립되는 연출 =====
+   구조(세로선)가 먼저 서고 → 이름이 칼럼에 자리 잡고 → 내용이 들어온다.
+   animation 은 no-preference 안에만 두고, 쉬는 상태를 최종 모습으로 잡았다.
+   (모션 최소화 설정이면 연출 없이 완성된 화면이 그대로 보인다) */
 
-/* 도트 그리드 */
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: radial-gradient(
-    var(--color-border-strong) 1px,
-    transparent 1px
-  );
-  background-size: 24px 24px;
-  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 90%);
-  mask-image: linear-gradient(180deg, #000 70%, transparent 90%);
-}
-
-/* 스포트라이트 */
-.spotlight {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(
-    200px circle at var(--mx, 50%) var(--my, 40%),
-    var(--color-spotlight),
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(180deg, #000 75%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 75%, transparent 100%);
-}
-
-/* 모션 최소화 설정 = 스포트라이트 중앙 고정.
-   JS 가 쓰는 인라인 스타일을 이겨야 하므로 !important 가 필요하다.
-   (JS 는 마운트 시점에 한 번만 검사하지만, 미디어 쿼리는 실시간으로 반응한다) */
-@media (prefers-reduced-motion: reduce) {
-  .spotlight {
-    --mx: 50% !important;
-    --my: 40% !important;
+@keyframes draw {
+  from {
+    transform: scaleY(0);
   }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+.rule {
+  transform-origin: top;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* backwards = 지연 시간 동안 0% 상태를 유지한다 (시작 전 깜빡임 방지) */
+  .rule {
+    animation: draw 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+
+  .ruleRight {
+    animation-delay: 0.08s;
+  }
+
+  .role {
+    animation: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.28s backwards;
+  }
+
+  .name {
+    animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s backwards;
+  }
+
+  .slogan {
+    animation: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.35s backwards;
+  }
+
+  .bio {
+    animation: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.45s backwards;
+  }
+
+  .links {
+    animation: rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.55s backwards;
+  }
+}
+
+/* ===== 요소 검사 오버레이 =====
+   포인터가 올라간 요소의 박스를 개발자도구처럼 그린다 */
+
+.inspector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  border: 1px dashed var(--color-primary);
+  border-radius: 2px;
+  /* 글자 위에 덮이므로 가독성을 해치지 않을 만큼만 */
+  background: color-mix(in srgb, var(--color-primary) 7%, transparent);
+  transition:
+    opacity 0.15s ease,
+    transform 0.18s ease,
+    width 0.18s ease,
+    height 0.18s ease;
+}
+
+.inspectorLabel {
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--color-primary);
+  color: var(--color-bg-card);
+  font-size: 11px;
+  line-height: 1.5;
+  white-space: nowrap;
 }

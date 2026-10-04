@@ -1,14 +1,30 @@
 import Link from "next/link";
-import Image from "next/image";
 
 import { formatPeriod } from "@/lib/period";
-import type { CommonLink, Project } from "@/types/resume";
+import type {
+  Project,
+  ProjectPreview,
+  ProjectPreviewKind,
+} from "@/types/resume";
 
-import { PROJECT_BUTTON_CLASS } from "./buttonStyle";
+import { PROJECT_ICON_BUTTON_CLASS } from "./buttonStyle";
 import ProjectDialog from "./ProjectDialog";
+import { DemoIcon, DeployIcon, GitHubIcon } from "./projectIcons";
 import Section from "./Section";
 
 const PROJECTS_DATA: Project[] = [
+  {
+    title: "무너랑(Moonorang)",
+    periods: [{ start: 260818, end: 260904 }],
+    meta: ["3인", "Fullstack - 30%"],
+    summary:
+      "LLM 채팅으로 요금제 추천부터 가입까지 하나의 대화 흐름 안에서 처리하는 모바일 우선 웹 서비스",
+    outcome:
+      "카카오 OAuth 가입 미완료 사용자를 Next.js proxy 쿠키 체크와 서버 DB 가드로 이중 차단해 외래키 위반 방지",
+    tags: ["Next.js", "Supabase", "Zustand"],
+    repository: "https://github.com/Moonorang/moonorang",
+    preview: { kind: "deploy", href: "https://moonorang.vercel.app" },
+  },
   {
     title: "놀몽(NolMong)",
     periods: [{ start: 260714, end: 260730 }],
@@ -18,47 +34,23 @@ const PROJECTS_DATA: Project[] = [
     outcome:
       "Ably LiveObjects와 Zustand 양방향 연동으로 새로고침 없는 실시간 동기화 계층 구축",
     tags: ["Next.js", "Supabase", "Ably", "Zustand"],
-    links: [
-      {
-        label: "깃허브",
-        href: "https://github.com/NolMong/nolmong",
-        external: true,
-        svg: "/icons/GitHub.svg",
-      },
-      {
-        label: "페이지",
-        href: "https://nolmong.vercel.app/",
-        external: true,
-        svg: "/icons/GitHub.svg",
-      },
-    ],
+    repository: "https://github.com/NolMong/nolmong",
+    preview: { kind: "deploy", href: "https://nolmong.vercel.app/" },
   },
   {
     title: "운동 계획 및 맞춤형 운동 추천 앱",
     periods: [{ start: 240905, end: 241212 }],
-    meta: ["3인", "Backend - 100%", "DB - 100%", "Frontend - 10%"],
+    meta: ["3인", "Backend - 100%, Frontend - 10%"],
     summary:
       "개인의 운동 계획 수립과 기록·추적을 돕고, 목표와 신체 정보에 맞는 루틴을 추천하는 앱",
     outcome:
       "RESTful API 서버 설계 및 구축, 로컬 DB 캐싱으로 조회 지연을 해결해 평균 5158ms 단축",
     tags: ["FastAPI", "SQLite"],
-    links: [
-      {
-        label: "깃허브",
-        href: "https://github.com/Ourumo/FitnessApp_FastAPI",
-        external: true,
-        svg: "/icons/GitHub.svg",
-      },
-      {
-        label: "데모",
-        href: "/fitness",
-        external: false,
-        svg: "/icons/GitHub.svg",
-      },
-    ],
+    repository: "https://github.com/Ourumo/FitnessApp_FastAPI",
+    preview: { kind: "demo", href: "/fitness" },
   },
   {
-    title: "법인 카드 관리 시스템 페이지",
+    title: "사내 전자결재 웹 서비스",
     periods: [
       { start: 240701, end: 240731 },
       { start: 250515, end: 250607 },
@@ -68,48 +60,57 @@ const PROJECTS_DATA: Project[] = [
       "사원의 비품 신청 내역을 직책별 결재 라인에 따라 승인 및 반려 처리하는 사내 전자결재 웹 서비스",
     outcome:
       "실제 결재 프로세스 기반 3단계 직책별 권한 분기 구조의 전자결재 프로세스 설계 및 구현",
-    tags: ["React", "JavaScript", "TypeScript"],
-    links: [
-      {
-        label: "깃허브",
-        href: "https://github.com/SunJinInternShip/DeptManagement_FrontEnd",
-        external: true,
-        svg: "/icons/GitHub.svg",
-      },
-      {
-        label: "데모",
-        href: "/dept",
-        external: false,
-        svg: "/icons/GitHub.svg",
-      },
-    ],
+    tags: ["React", "TypeScript"],
+    repository: "https://github.com/SunJinInternShip/DeptManagement_FrontEnd",
+    preview: { kind: "demo", href: "/dept" },
   },
 ];
 
-const ProjectLinkButton = ({ link }: { link: CommonLink }) => {
-  const className = PROJECT_BUTTON_CLASS;
+const PREVIEW_META: Record<
+  ProjectPreviewKind,
+  { label: string; Icon: () => React.ReactElement }
+> = {
+  deploy: { label: "배포 사이트", Icon: DeployIcon },
+  demo: { label: "데모", Icon: DemoIcon },
+};
 
-  const content = (
-    <>{link.svg && <Image src={link.svg} alt="" width={16} height={16} />}</>
-  );
+/**
+ * 배포 사이트는 바깥 주소라 새 탭으로, 데모는 이 사이트 안의 라우트라
+ * next/link 로 보낸다. 아이콘만 있는 버튼이므로 이름은 sr-only 로 따로 준다.
+ */
+const ProjectPreviewButton = ({
+  title,
+  preview,
+}: {
+  title: string;
+  preview: ProjectPreview;
+}) => {
+  const { label, Icon } = PREVIEW_META[preview.kind];
+  const name = `${title} ${label}`;
 
-  if (!link.external) {
+  if (preview.kind === "demo") {
     return (
-      <Link href={link.href} className={className}>
-        {content}
+      <Link
+        href={preview.href}
+        title={label}
+        className={PROJECT_ICON_BUTTON_CLASS}
+      >
+        <Icon />
+        <span className="sr-only">{name}</span>
       </Link>
     );
   }
 
   return (
     <a
-      href={link.href}
+      href={preview.href}
       target="_blank"
       rel="noopener noreferrer"
-      className={className}
+      title={label}
+      className={PROJECT_ICON_BUTTON_CLASS}
     >
-      {content}
-      <span className="sr-only">(새 탭)</span>
+      <Icon />
+      <span className="sr-only">{name} (새 탭)</span>
     </a>
   );
 };
@@ -126,10 +127,10 @@ const Projects = () => {
             <div>
               <h3 className="font-bold text-main">{project.title}</h3>
               <p className="mt-1 text-xs text-muted">
-                {[...project.periods.map(formatPeriod)].join(" | ")}
+                {project.periods.map(formatPeriod).join(" | ")}
               </p>
               <p className="mt-1 text-xs text-muted">
-                {[...project.meta].join(" | ")}
+                {project.meta.join(" | ")}
               </p>
             </div>
 
@@ -152,7 +153,7 @@ const Projects = () => {
                 </ul>
               )}
 
-              <div className="ml-auto flex flex-wrap gap-2">
+              <div className="ml-auto flex flex-wrap items-center gap-2">
                 <ProjectDialog title={project.title}>
                   <p className="text-xs text-muted">
                     {[
@@ -166,9 +167,27 @@ const Projects = () => {
                   <p className="mt-2 text-sm text-primary">{project.outcome}</p>
                 </ProjectDialog>
 
-                {project.links.map((link) => (
-                  <ProjectLinkButton key={link.href} link={link} />
-                ))}
+                {project.repository && (
+                  <a
+                    href={project.repository}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="깃허브 저장소"
+                    className={PROJECT_ICON_BUTTON_CLASS}
+                  >
+                    <GitHubIcon />
+                    <span className="sr-only">
+                      {project.title} 깃허브 저장소 (새 탭)
+                    </span>
+                  </a>
+                )}
+
+                {project.preview && (
+                  <ProjectPreviewButton
+                    title={project.title}
+                    preview={project.preview}
+                  />
+                )}
               </div>
             </div>
           </li>

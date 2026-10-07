@@ -43,6 +43,27 @@ export interface ProjectPreview {
   href: string;
 }
 
+/**
+ * 프로젝트에서 실제로 겪은 문제 하나.
+ * 세 목록 모두 한 줄이 하나의 항목이다.
+ */
+export interface ProjectIssue {
+  title: string;
+  /** 어떤 문제가 발생했나. 원인을 알면 함께 적는다 */
+  problems: string[];
+  /** 그 문제를 어떻게 해결했나 */
+  solutions: string[];
+  /** 해결해서 무엇이 달라졌나 */
+  results: string[];
+}
+
+/** '자세히 보기' 모달 내용 */
+export interface ProjectDetail {
+  /** 프로젝트 소개와 맡은 범위. 문단 하나 */
+  description: string;
+  issues: ProjectIssue[];
+}
+
 export interface Project {
   title: string;
   periods: Period[];
@@ -50,6 +71,7 @@ export interface Project {
   summary: string;
   outcome: string;
   tags: string[];
+  detail: ProjectDetail;
   /** 깃허브 저장소 주소 */
   repository?: string;
   /** 배포 사이트 또는 데모 */

@@ -57,7 +57,7 @@ export default function ProjectDialog({ title, children }: ProjectDialogProps) {
         aria-labelledby={titleId}
         onClose={handleClose}
         onClick={handleClick}
-        className="m-auto w-[min(90vw,40rem)] rounded-2xl border border-border bg-bg-card p-0 text-main shadow-card-strong backdrop:bg-black/40"
+        className="m-auto w-[min(90vw,52rem)] rounded-2xl border border-border bg-bg-card p-0 text-main shadow-card-strong backdrop:bg-black/40"
       >
         <div className="flex items-start justify-between gap-4 border-b border-border p-5">
           <h3 id={titleId} className="font-semibold text-main">
@@ -73,7 +73,7 @@ export default function ProjectDialog({ title, children }: ProjectDialogProps) {
           </button>
         </div>
 
-        <div className="max-h-[70vh] overflow-y-auto p-5 break-keep">
+        <div className="max-h-[80vh] overflow-y-auto p-5 break-keep">
           {children}
         </div>
       </dialog>

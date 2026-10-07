@@ -2,6 +2,13 @@
 
 /* light/dark theme */
 @theme {
+  /* ===== Font ===== */
+  /* 'Pretendard Variable' 은 layout.tsx 에서 import 하는 dynamic subset CSS 가 정의한다.
+     조각을 받기 전에는 시스템 폰트 */
+  --font-sans:
+    'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui,
+    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+
   /* ===== Primary - Royal blue ===== */
   --color-primary: light-dark(#305cde, #5f81e5);
 

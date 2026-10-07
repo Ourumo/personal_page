@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist_Mono } from 'next/font/google';
+/* Pretendard 를 글자 범위별 조각으로 나눈 CSS. 화면에 쓰인 글자가 든 조각만 받는다.
+   글꼴 이름은 'Pretendard Variable' 이고 globals.css 의 --font-sans 가 가리킨다 */
+import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -25,7 +23,7 @@ export default function RootLayout({
   return (
     <html
       lang='ko'
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistMono.variable} h-full antialiased`}
     >
       <body className='min-h-full flex flex-col'>{children}</body>
     </html>

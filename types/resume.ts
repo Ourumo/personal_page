@@ -70,6 +70,8 @@ export interface Project {
   meta: string[];
   summary: string;
   outcome: string;
+  /** 카드에 바로 보이는 문제 해결 결과. 한 줄이 하나의 항목 */
+  highlights: string[];
   tags: string[];
   detail: ProjectDetail;
   /** 깃허브 저장소 주소 */

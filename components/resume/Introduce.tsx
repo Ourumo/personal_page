@@ -10,8 +10,8 @@ const INTRODUCE_LINKS: CommonLink[] = [
 const INTRODUCE_DATA: IntroduceData = {
   role: "Frontend Developer",
   name: "이규태",
-  slogan: "복잡함은 구조로 나누고, 화면은 가볍게 만듭니다.",
-  bio: "프론트엔드를 중심으로 API 서버 구축 및 배포까지 직접 다뤄 왔습니다. 실시간 협업 플랫폼, 사내 전자결재, 운동 추천 앱을 만들며 요구사항을 구조로 옮기는 일을 반복했습니다.",
+  slogan: "누가 언제 바꾸든, 모두가 같은 화면을 보게 만듭니다.",
+  bio: "여러 사람이 함께 쓰는 화면의 상태를 다뤄 왔습니다. 실시간 여행 계획 협업 서비스에서는 참여자 간 데이터가 어긋나지 않도록 동기화 계층을 만들었고, 사내 전자결재 서비스에서는 실제 결재 흐름을 직책별 권한 구조로 옮겼습니다.",
   links: INTRODUCE_LINKS,
 };
 

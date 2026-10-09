@@ -11,7 +11,6 @@ const EDUCATIONS_DATA: Education[] = [
     descriptions: [
       "React와 TypeScript로 컴포넌트 설계, 상태 관리, 라우팅까지 프론트엔드 전반을 학습",
       "팀 프로젝트 '놀몽'에서 실시간 동기화 계층 구현을 맡아 배포까지 진행",
-      "팀 프로젝트 '무너랑'에서 프로젝트 구조 설계와 카카오 OAuth 인증 흐름 구현을 담당",
     ],
   },
   {
@@ -35,9 +34,7 @@ const EDUCATIONS_DATA: Education[] = [
     name: "강남대학교",
     periods: [{ start: 190301, end: 250228 }],
     subtitle: "소프트웨어학과 전공",
-    descriptions: [
-      "졸업 프로젝트로 운동 추천 앱을 만들며 API 서버와 DB를 맡아 설계부터 구현까지 담당",
-    ],
+    descriptions: [],
   },
 ];
 

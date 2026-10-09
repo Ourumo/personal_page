@@ -108,7 +108,7 @@ const PROJECTS_DATA: Project[] = [
       "실제 결재 프로세스 기반 3단계 직책별 권한 분기 구조의 전자결재 프로세스 설계 및 구현",
     highlights: [
       "시연에서 실제 업무를 반영하지 못한 구조라는 피드백을 받고, 결재 프로세스를 조사해 2단계 구조를 약 1주 만에 전면 재설계",
-      "이름 비교(name === \"admin\")에 의존하던 관리자 판별을 서버 role 기반 권한 분기로 대체",
+      '이름 비교(name === "admin")에 의존하던 관리자 판별을 서버 role 기반 권한 분기로 대체',
       "목록을 새로 불러올 때만 갱신되던 결재 알림을 5초 폴링에서 WebSocket으로 전환해, 주기적 요청 없이 실시간으로 수신",
     ],
     tags: ["React", "TypeScript"],
@@ -120,7 +120,7 @@ const PROJECTS_DATA: Project[] = [
           title: "실제 업무를 반영하지 못한 단순한 결재 구조",
           problems: [
             "기획 단계에서 사용자가 신청 내역을 등록하면 관리자가 처리하는 2단계 구조로 설계·구현",
-            "관리자 판별도 서버 권한이 아니라 이름 비교(name === \"admin\")에 의존",
+            '관리자 판별도 서버 권한이 아니라 이름 비교(name === "admin")에 의존',
             "기능 시연에서 실제 사용 환경을 반영하지 못한 단순한 구조라는 피드백을 받음",
           ],
           solutions: [
@@ -140,12 +140,15 @@ const PROJECTS_DATA: Project[] = [
             "알림을 주문 목록 조회와 함께 가져와, 결재 상태가 바뀌어도 목록을 새로 불러올 때만 알림이 갱신됨",
           ],
           solutions: [
-            "알림 컴포넌트를 분리하고 5초 폴링 적용, 화면을 벗어나면 clearInterval로 정리",
-            "페이지를 이동하면 알림이 초기화되는 문제는 Redux Toolkit 전역 상태로 해결",
-            "5초마다 보내는 GET 요청을 없애기 위해 WebSocket으로 전환. 헤더를 보낼 수 없는 제약은 연결 URL의 쿼리스트링으로 토큰을 전달해 해결",
+            "알림 컴포넌트를 분리해 5초마다 스스로 조회하게 하고 모든 화면에 표시, 화면을 벗어나면 clearInterval로 정리",
+            "알림이 없어도 5초마다 나가던 GET 요청을 없애기 위해 WebSocket으로 전환. 헤더를 보낼 수 없는 제약은 연결 URL의 쿼리스트링으로 토큰을 전달해 해결",
             "소켓은 useRef로 보관해 리렌더와 무관하게 유지하고, 화면을 벗어나면 연결 해제",
+            "전환 후 받은 알림이 각 화면 컴포넌트에만 있어 페이지를 이동하면 사라지는 문제를 Redux Toolkit 전역 store로 옮겨 해결",
           ],
-          results: ["5초 주기 요청 없이 결재 상태 변경을 실시간 알림으로 받음"],
+          results: [
+            "5초 주기 요청 없이 결재 상태 변경을 실시간 알림으로 받음",
+            "페이지를 이동해도 받은 알림이 유지됨",
+          ],
         },
       ],
     },
@@ -279,9 +282,7 @@ const Projects = () => {
 
               <div className="ml-auto flex flex-wrap items-center gap-2">
                 <ProjectDialog title={project.title}>
-                  <h4 className="text-sm font-bold text-main">
-                    프로젝트 설명
-                  </h4>
+                  <h4 className="text-sm font-bold text-main">프로젝트 설명</h4>
                   <p className="mt-2 text-sm leading-relaxed text-sub">
                     {project.detail.description}
                   </p>

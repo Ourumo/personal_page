@@ -80,21 +80,9 @@ export interface Project {
   preview?: ProjectPreview;
 }
 
-// ===== 교육 섹션 =====
-export interface Education {
-  /** 학교 · 부트캠프 · 교육 과정명 */
-  name: string;
-  periods: Period[];
-  /** 전공, 수료 과정 등 한 줄 */
-  subtitle?: string;
-  /** 배운 내용. 한 줄이 하나의 항목 */
-  descriptions: string[];
-}
-
 // ===== 전체 =====
 export interface Resume {
   introduce: IntroduceData;
   skills: Skill[];
   projects: Project[];
-  educations: Education[];
 }

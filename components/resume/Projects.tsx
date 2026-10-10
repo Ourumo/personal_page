@@ -220,7 +220,6 @@ const ProjectPreviewButton = ({
   );
 };
 
-/* 교육 섹션의 설명 목록과 같은 모양을 쓴다 */
 const ProjectIssueStep = ({
   label,
   items,

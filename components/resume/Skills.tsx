@@ -21,7 +21,7 @@ const SKILLS_DATA: Skill[] = [
       { name: "Next.js", svg: "/icons/NextJS.svg" },
       { name: "Tailwind CSS", svg: "/icons/TailwindCSS.svg" },
       { name: "Zustand", svg: "/icons/Zustand.svg" },
-      { name: "Redux", svg: "/icons/Redux.svg" },
+      { name: "Redux Toolkit", svg: "/icons/Redux.svg" },
     ],
   },
   {

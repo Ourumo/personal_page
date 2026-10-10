@@ -11,7 +11,7 @@ const INTRODUCE_DATA: IntroduceData = {
   role: "Frontend Developer",
   name: "이규태",
   slogan: "누가 언제 바꾸든, 모두가 같은 화면을 보게 만듭니다.",
-  bio: "여러 사람이 함께 쓰는 화면의 상태를 다뤄 왔습니다. 실시간 여행 계획 협업 서비스에서는 참여자 간 데이터가 어긋나지 않도록 동기화 계층을 만들었고, 사내 전자결재 서비스에서는 실제 결재 흐름을 직책별 권한 구조로 옮겼습니다.",
+  bio: "여러 사람이 함께 쓰는 화면의 상태를 다룹니다. 실시간 여행 계획 협업 서비스에서는 Ably LiveObjects와 Zustand를 연동한 동기화 계층과 Presence 기반 동시 편집 표시를 구현했습니다. 사내 전자결재 서비스에서는 결재 흐름을 role 기반 3단계 권한으로 분기 설계하고 결제 알림을 WebSocket으로 전환했습니다.",
   links: INTRODUCE_LINKS,
 };
 

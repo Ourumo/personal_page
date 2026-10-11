@@ -6,8 +6,10 @@ interface SectionProps {
 }
 
 export default function Section({ title, children }: SectionProps) {
+  /* 아래 여백까지 주면 섹션 사이가 두 배로 벌어지므로 위쪽만 준다.
+     마지막 섹션 아래 여백은 페이지(main)가 맡는다 */
   return (
-    <section className='mx-auto w-[80%] max-w-275 py-12 sm:py-16'>
+    <section className='mx-auto w-[80%] max-w-275 pt-12 sm:pt-16'>
       <h2 className='mb-4 text-2xl font-bold text-sub uppercase tracking-wide'>
         {title}
       </h2>

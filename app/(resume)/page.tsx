@@ -4,7 +4,7 @@ import Skills from "@/components/resume/Skills";
 
 export default function Resume() {
   return (
-    <main className="bg-bg">
+    <main className="bg-bg pb-12 sm:pb-16">
       {/* section 1 - 자기소개 */}
       <Introduce />
 

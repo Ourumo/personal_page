@@ -61,6 +61,11 @@ export interface ProjectIssueStage {
   solutions: string[];
   /** 마지막 단계는 비워 둔다 */
   revealed?: string[];
+  /**
+   * 버그는 아니지만 다음 단계로 발전시키게 된 한계.
+   * 겪은 문제를 고친 게 아니라 점진적으로 개선한 사례는 revealed 대신 이걸 쓴다
+   */
+  limits?: string[];
 }
 
 interface ProjectIssueBase {

@@ -70,6 +70,7 @@ export default function Skills() {
                       alt={item.name}
                       width={24}
                       height={24}
+                      style={{ width: 24, height: 24 }}
                       loading="lazy"
                     />
                     {item.name}

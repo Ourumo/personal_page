@@ -8,6 +8,7 @@ import type {
   ProjectIssueStage,
   ProjectPreview,
   ProjectPreviewKind,
+  ProjectTechChoice,
 } from "@/types/resume";
 
 import { PROJECT_ICON_BUTTON_CLASS } from "./buttonStyle";
@@ -24,6 +25,23 @@ const PROJECTS_DATA: Project[] = [
     outcome:
       "Ably LiveObjects와 Zustand 양방향 연동으로 새로고침 없는 실시간 동기화 계층 구축",
     tags: ["Next.js", "Supabase", "Ably", "Zustand"],
+    techChoices: [
+      {
+        name: "Ably",
+        reason:
+          "약 2.5주의 짧은 개발 기간에 소켓 서버를 직접 구축하기 어려워 관리형 실시간 서비스를 검토했고, Pusher와 비교해 무료 플랜의 동시 연결 수가 더 많은 Ably를 선택",
+      },
+      {
+        name: "Next.js",
+        reason:
+          "팀원 모두 프론트엔드 지망이라 서버에 쓰는 시간을 줄이려고 JS · TS 기반을 원했고, Vercel 배포까지 고려해 Express보다 Next.js가 낫다고 판단",
+      },
+      {
+        name: "Supabase",
+        reason:
+          "서버 개발 부담을 줄이려고, Auth가 내장되어 있고 관계형 데이터를 다룰 수 있는 Supabase를 선택",
+      },
+    ],
     issues: [
       {
         title:
@@ -240,6 +258,7 @@ const PROJECTS_DATA: Project[] = [
             title:
               "폴링을 WebSocket 구독으로 바꾸고 수신한 알림을 Redux Toolkit store에 누적",
             solutions: [
+              "백엔드의 WebSocket 알림 도입에 맞춰 폴링을 구독 방식으로 전환",
               "브라우저 WebSocket API는 커스텀 헤더를 지원하지 않아, 인증 토큰을 쿼리스트링으로 전달해 연결",
               "소켓 인스턴스는 useRef로 보관해 리렌더와 무관하게 유지하고, useEffect cleanup에서 close()로 연결 해제",
               "WebSocket은 연결 이후의 새 알림만 받아 컴포넌트 state에 두면 화면 이동 시 사라지므로, 수신 메시지를 addNotification으로 dispatch해 Redux Toolkit 전역 store에 누적",
@@ -307,6 +326,20 @@ const ProjectPreviewButton = ({
     </a>
   );
 };
+
+/* 요약 · 성과 아래에 붙는 기술 선택 이유. 프로젝트 제목이 h3 이라 h4 로 둔다 */
+const ProjectTechChoices = ({ items }: { items: ProjectTechChoice[] }) => (
+  <section className="mt-4 text-sm">
+    <h4 className="font-semibold text-main">기술 선택 이유</h4>
+    <ul className="mt-1.5 flex list-disc flex-col gap-1.5 pl-5 text-sub marker:text-muted">
+      {items.map(({ name, reason }) => (
+        <li key={name}>
+          <span className="font-medium text-main">{name}</span>: {reason}
+        </li>
+      ))}
+    </ul>
+  </section>
+);
 
 /* 문제 해결 사례 안의 한 단계. 라벨에는 점을 찍지 않고, 내용에만 점을 찍는다 */
 const ProjectIssueStep = ({
@@ -439,7 +472,7 @@ const ProjectIssueCard = ({
 
 /**
  * 프로젝트가 몇 개 없으므로 모달에 숨기지 않고 카드 안에 모두 펼친다.
- * 위쪽(태그·요약·성과)만 훑어도 되고, 아래쪽(문제 해결 사례)까지 읽어도 되게 나눈다.
+ * 위쪽(태그·요약·성과·기술 선택 이유)만 훑어도 되고, 아래쪽(문제 해결 사례)까지 읽어도 되게 나눈다.
  */
 const Projects = () => {
   return (
@@ -503,6 +536,10 @@ const Projects = () => {
               <p className="font-semibold text-sub">{project.summary}</p>
               <p className="mt-1 text-primary">{project.outcome}</p>
             </div>
+
+            {project.techChoices && (
+              <ProjectTechChoices items={project.techChoices} />
+            )}
 
             <div className="mt-6 flex flex-col gap-8 border-t border-border pt-6">
               {project.issues.map((issue, index) => (

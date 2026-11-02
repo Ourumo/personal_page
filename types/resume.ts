@@ -89,6 +89,12 @@ export type ProjectIssue = ProjectIssueBase &
     | { stages: ProjectIssueStage[]; solutions?: never }
   );
 
+/** 비교하거나 고민해서 고른 기술과 그 이유 */
+export interface ProjectTechChoice {
+  name: string;
+  reason: string;
+}
+
 export interface Project {
   title: string;
   periods: Period[];
@@ -96,6 +102,8 @@ export interface Project {
   summary: string;
   outcome: string;
   tags: string[];
+  /** 고른 이유를 설명할 수 있는 기술만 적는다. 없으면 비워 둔다 */
+  techChoices?: ProjectTechChoice[];
   /** 카드 아래쪽에 펼쳐 보이는 문제 해결 사례 */
   issues: ProjectIssue[];
   /** 깃허브 저장소 주소 */

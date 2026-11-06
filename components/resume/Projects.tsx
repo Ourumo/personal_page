@@ -56,6 +56,12 @@ const PROJECTS_DATA: Project[] = [
       {
         title:
           "동시에 만료된 요청이 로그인을 끊을 수 있던 문제를 재발급 공유와 재전송 제한으로 해결",
+        architecture: {
+          src: "/architecture/lunchcatch-1.png",
+          alt: "API를 동시에 부르는 화면에서 요청마다 재발급하면 같은 Refresh Token이 여러 번 전송돼 Rotation 정책에 걸리는 구조와, 진행 중인 재발급을 모든 요청이 공유해 한 번만 보내고 성공하면 실패한 요청만 다시 보내며 결과를 알 수 없으면 재전송을 멈추는 구조",
+          width: 1920,
+          height: 1080,
+        },
         problems: [
           "구현 전 서버 정책을 확인하다, API 여러 개를 동시에 부르는 화면에서 토큰이 만료되면 같은 Refresh Token이 여러 번 전송돼 로그인이 끊길 수 있는 문제 발견",
           "재발급 요청이 503이거나 응답이 없으면, 서버가 이미 토큰을 바꿨는지 알 수 없어 다시 보내도 되는지 판단할 수 없는 문제 발견",
@@ -78,6 +84,12 @@ const PROJECTS_DATA: Project[] = [
       {
         title:
           "업로드에 실패하면 사진 자리가 줄어들던 문제를 실패한 단계부터 다시 시도하는 구조로 해결",
+        architecture: {
+          src: "/architecture/lunchcatch-2.png",
+          alt: "실패할 때마다 줄이기부터 다시 시작해 주소를 발급할 때마다 사진 자리가 줄어 '3장 초과'로 거절되던 구조와, 사진 칸 상태를 판별 유니온으로 나눠 받은 주소와 줄인 파일을 보관하고 실패한 단계부터 다시 진행하는 구조",
+          width: 1920,
+          height: 1080,
+        },
         problems: [
           "업로드를 확인한 사진이 0장인데도, 4번째 업로드 주소 발급이 '3장 초과'로 거절되는 문제 발견",
           "실패한 사진을 다시 줄여 올리면, 크기가 달라져 업로드 주소의 서명과 맞지 않을 수 있는 문제 발견",
@@ -96,6 +108,12 @@ const PROJECTS_DATA: Project[] = [
       {
         title:
           "결제창을 다녀오면 캠페인 입력값이 사라지던 문제를 sessionStorage 복원과 승인 상태 조회로 해결",
+        architecture: {
+          src: "/architecture/lunchcatch-3.png",
+          alt: "결제창 이동으로 앱이 다시 그려져 입력값이 사라지고 승인 결과가 불확실하면 충전 여부를 모르던 흐름과, 작성 값을 sessionStorage에 한 번만 보관하고 결과가 불확실하면 결제 상태 조회로 확인하며 돌아갈 주소는 같은 출처만 허용하는 흐름",
+          width: 1920,
+          height: 1080,
+        },
         problems: [
           "토스 결제창에서 충전하고 돌아오면, 서버에 저장하지 않은 하루 예산 · 기간 입력값이 사라지는 문제 발견",
           "승인 확정 응답이 202(확정 전) · 503이거나 오지 않으면, 충전됐는지 알 수 없는 문제 발견",
@@ -116,6 +134,12 @@ const PROJECTS_DATA: Project[] = [
       {
         title:
           "한 앱에 섞여 있던 역할별 화면을 pnpm · Turborepo 모노레포로 분리",
+        architecture: {
+          src: "/architecture/lunchcatch-4.png",
+          alt: "역할별 화면이 한 Vite 앱에 섞여 import 경계와 배포 단위가 없던 구조와, pnpm · Turborepo로 앱 3개와 공통 패키지 4개로 나누고 앱 내부는 3계층과 자체 ESLint 규칙으로 import 경계를 강제한 구조",
+          width: 1920,
+          height: 1080,
+        },
         problems: [
           "사용자 · 점주 · 관리자 화면이 한 앱에 있어, 역할끼리 서로의 코드를 가져다 쓸 수 있고 앱별로 배포할 수 없는 문제 발견",
           "npm은 package.json에 선언하지 않은 패키지도 import할 수 있어, 다른 환경에서만 깨지는 코드가 생길 수 있는 문제 발견",

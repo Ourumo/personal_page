@@ -159,9 +159,13 @@ const PROJECTS_DATA: Project[] = [
         ],
       },
     ],
-    repository: "https://github.com/lunch-catch/lc-frontend",
-    // API 서버가 내려가 화면만 열린다. 목 데이터를 넣기 전까지 숨긴다
-    // preview: { kind: "deploy", href: "https://lunchcatch-owner.vercel.app/" },
+    // 원본(lunch-catch/lc-frontend)에서 점주 앱만 커밋 기록과 함께 가져온 개인 저장소
+    repository: "https://github.com/Ourumo/lunchcatch-owner",
+    // API 서버가 내려가 목 모드(MSW)로 시연 데이터를 보여 주는 배포
+    preview: {
+      kind: "deploy",
+      href: "https://lunchcatch-owner-demo.vercel.app/",
+    },
   },
   {
     title: "놀몽(NolMong)",

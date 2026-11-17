@@ -11,7 +11,7 @@ const INTRODUCE_DATA: IntroduceData = {
   role: "Frontend Developer",
   name: "이규태",
   slogan: "화면이 어긋나는 순간, 원인부터 찾아 해결합니다.",
-  bio: "여러 사람이 함께 쓰는 화면의 상태를 다룹니다. 실시간 여행 계획 협업 서비스에서는 Ably LiveObjects와 Zustand를 연동한 동기화 계층을 만들고, 참여자마다 화면이 어긋나던 문제를 draft 병합 · Presence · batch 전송으로 해결했습니다. 사내 전자결재 서비스에서는 결재 흐름을 role 기반 3단계 권한 구조로 설계하고, 결재 알림을 폴링에서 WebSocket으로 전환했습니다.",
+  bio: "여러 사람이 함께 쓰는 화면의 상태를 다룹니다. 점심 쿠폰 플랫폼에서는 FE 파트장으로 pnpm · Turborepo 모노레포 개발 환경을 만들고, 서버가 상태를 바꾸는 시점을 확인해 토큰 재발급 · 사진 업로드 · 결제 승인의 재시도 규칙을 설계했습니다. 실시간 여행 계획 협업 서비스에서는 Ably LiveObjects와 Zustand를 연동한 동기화 계층을 만들고, 참여자마다 화면이 어긋나던 문제를 draft 병합 · Presence · batch 전송으로 해결했습니다. 사내 전자결재 서비스에서는 결재 흐름을 role 기반 3단계 권한 구조로 설계하고, 결재 알림을 폴링에서 WebSocket으로 전환했습니다.",
   links: INTRODUCE_LINKS,
 };
 

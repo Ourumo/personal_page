@@ -35,10 +35,7 @@ export default function Introduce() {
       </div>
 
       <div className="relative mx-auto grid w-[80%] max-w-275 gap-2 break-keep sm:grid-cols-[8rem_1fr] sm:gap-x-10">
-        <p
-          data-inspect="p"
-          className={`${styles.role} text-sm text-sub sm:pt-3`}
-        >
+        <p className={`${styles.role} text-sm text-sub sm:pt-3`}>
           {INTRODUCE_DATA.role}
         </p>
 

@@ -11,7 +11,7 @@ const INTRODUCE_DATA: IntroduceData = {
   role: "Frontend Developer",
   name: "이규태",
   slogan: "화면이 몇 개든, 원본 하나로 상태의 정합성을 지킵니다.",
-  bio: "여러 사람이 함께 쓰는 화면의 상태를 다룹니다. 점심 쿠폰 플랫폼에서는 토큰 재발급 · 결제 승인의 재시도 규칙을, 여행 계획 협업 서비스에서는 Ably 실시간 동기화를, 전자결재 서비스에서는 role 기반 결재 권한을 설계했습니다.",
+  bio: "점심 쿠폰 플랫폼에서는 토큰 재발급 · 결제 승인의 재시도 규칙을, 여행 계획 협업 서비스에서는 Ably 실시간 동기화를, 전자결재 서비스에서는 role 기반 결재 권한을 설계했습니다.",
   links: INTRODUCE_LINKS,
 };
 

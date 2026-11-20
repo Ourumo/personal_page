@@ -56,7 +56,7 @@ export default function Introduce() {
 
           <h3
             data-inspect="h3"
-            className={`${styles.bio} max-w-xl text-sm leading-relaxed text-sub sm:text-base`}
+            className={`${styles.bio} max-w-2xl text-sm leading-relaxed text-sub sm:text-base`}
           >
             {INTRODUCE_DATA.bio}
           </h3>

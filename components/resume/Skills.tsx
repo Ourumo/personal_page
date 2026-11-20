@@ -38,6 +38,8 @@ const SKILLS_DATA: Skill[] = [
     label: "도구",
     items: [
       { name: "Vite", svg: "/icons/Vite.svg" },
+      { name: "pnpm", svg: "/icons/Pnpm.svg" },
+      { name: "Turborepo", svg: "/icons/Turborepo.svg" },
       { name: "Vercel", svg: "/icons/Vercel.svg" },
       { name: "Figma", svg: "/icons/Figma.svg" },
       { name: "Git", svg: "/icons/Git.svg" },

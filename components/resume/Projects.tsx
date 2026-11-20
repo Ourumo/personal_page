@@ -28,7 +28,7 @@ const PROJECTS_DATA: Project[] = [
     summary:
       "주변 가게와 직장인을 점심 쿠폰으로 이어주는 위치 기반 쿠폰 플랫폼 (점주 앱 담당)",
     outcome:
-      "서버가 상태를 바꾸는 시점을 확인해 토큰 재발급 · 사진 업로드 · 결제 승인의 재시도 규칙을 설계하고, pnpm · Turborepo 모노레포로 팀 개발 환경 구축",
+      "토큰 재발급 · 결제 승인의 결과를 알 수 없을 때 같은 요청을 다시 보내지 않는 규칙을 설계하고, pnpm · Turborepo 모노레포로 팀 개발 환경 구축",
     tags: ["React", "TypeScript", "Vite", "pnpm · Turborepo", "Toss Payments"],
     techChoices: [
       {
